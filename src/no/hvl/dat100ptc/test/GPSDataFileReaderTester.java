@@ -1,8 +1,6 @@
 package no.hvl.dat100ptc.test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import no.hvl.dat100ptc.oppgave2.GPSData;

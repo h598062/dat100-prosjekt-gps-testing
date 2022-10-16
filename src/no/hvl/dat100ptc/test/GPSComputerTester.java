@@ -1,12 +1,8 @@
 package no.hvl.dat100ptc.test;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import no.hvl.dat100ptc.oppgave1.GPSPoint;
 import no.hvl.dat100ptc.oppgave2.GPSDataConverter;
@@ -24,7 +20,7 @@ public class GPSComputerTester {
 			
 	private GPSComputer gpscomp;
 	
-	@Before
+	@BeforeEach
 	public void SetUp() {
 
 		GPSPoint g0 = GPSDataConverter.convert("2017-08-13T08:00:00.000Z","60.376988","5.227082","10");
@@ -46,38 +42,38 @@ public class GPSComputerTester {
 	
 	@Test
 	public void testTotalDistance() {
-		assertEquals("Total distance",EXP_TOTALDISTANCE,gpscomp.totalDistance(),1.0);
+		assertEquals(EXP_TOTALDISTANCE,gpscomp.totalDistance(),0.5);
 	}
 	
 	@Test
 	public void testTotalElevation() {
-		assertEquals("Total elevation",EXP_TOTALELEVATION,gpscomp.totalElevation(), 0);
+		assertEquals(EXP_TOTALELEVATION,gpscomp.totalElevation(), 0);
 	}
 
 	@Test
 	public void testTotalTime() {
-		assertEquals("Total time",EXP_TOTALTIME,gpscomp.totalTime());
+		assertEquals(EXP_TOTALTIME,gpscomp.totalTime());
 	}
 	@Test
 	public void testSpeeds() {
-		assertArrayEquals("speed",EXP_SPEEDS,gpscomp.speeds(),0.1);
+		assertArrayEquals(EXP_SPEEDS,gpscomp.speeds(),0.1);
 	}
 	
 	@Test
 	public void testMaxSpeed() {
-		assertEquals("maxSpeed",EXP_MAXSPEED,gpscomp.maxSpeed(),0.1);
+		assertEquals(EXP_MAXSPEED,gpscomp.maxSpeed(),0.1);
 	}
 	
 	@Test
 	public void testAverageSpeed() {
-		assertEquals("averageSpeed",EXP_AVERAGESPEED,gpscomp.averageSpeed(),0.1);
+		assertEquals(EXP_AVERAGESPEED,gpscomp.averageSpeed(),0.1);
 	}
 	
 	@Test
 	public void testkcal() {
-		assertEquals("kcal",8.0/3600.0,gpscomp.kcal(1.0, 1, 13.0/GPSComputer.MS),0.1);
-		assertEquals("kcal",2*8.0/3600.0,gpscomp.kcal(2.0, 1, 13.0/GPSComputer.MS),0.1);
-		assertEquals("kcal",3*2*8.0/3600.0,gpscomp.kcal(3.0, 2, 13.0/GPSComputer.MS),0.1);
+		assertEquals(8.0/3600.0,gpscomp.kcal(1.0, 1, 13.0/GPSComputer.MS),0.1);
+		assertEquals(2*8.0/3600.0,gpscomp.kcal(2.0, 1, 13.0/GPSComputer.MS),0.1);
+		assertEquals(3*2*8.0/3600.0,gpscomp.kcal(3.0, 2, 13.0/GPSComputer.MS),0.1);
 	}
 	
 	@Test
