@@ -65,9 +65,17 @@ class GPSDataTester {
 		assertTrue(gpsdata.insert("2017-08-13T00:00:03.000Z","7.0","8.0","9.0"));
 		assertEquals(3,gpsdata.getAntall());
 
-		gpsdata.print();
-		
 	}
 	
-	
+	@Test
+	void testprint () {
+		
+		gpsdata.insertGPST(g0);
+
+		gpsdata.insertGPST(g1);
+		
+		gpsdata.insertGPST(g2);
+
+		gpsdata.print();
+	}
 }
